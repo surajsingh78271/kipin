@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWA kIPIN</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">Kipin PWA</h1>
+    <h1 id="log-receipt">Logs Receipt => </h1>
+    <button onclick="handleOpenModal()" id="show-iap-modal">
+      Open IAP Modal
+    </button>
+
+    <script>
+      console.log("start");
+      const handleOpenModal = () => {
+        handleTestIAP();
+      };
+      window.onload = function () {
+        window.handlePriceFromSwift = function (receipt) {
+            console.log("Price received from Swift:", receipt);
+            let tempReceipt = document.getElementById("log-receipt")
+            tempReceipt.innerText = receipt
+          
+          // Write the below code for handling the receipt.
+        };
+      };
+
+      const handleTestIAP = () => {
+        // handleAppend()
+        if (
+          window.webkit &&
+          window.webkit.messageHandlers &&
+          window.webkit.messageHandlers.purchase
+        ) {
+          let tempReceipt = document.getElementById("log-receipt")
+            tempReceipt.innerText = "IOS device"
+          // If Device is IOS device this function will be invoked
+          window.webkit.messageHandlers.purchase.postMessage({
+            productName: "suraj_product",
+            productPrice: 10.0,
+          });
+        } else {
+          let tempReceipt = document.getElementById("log-receipt")
+            tempReceipt.innerText = "Not IOS Device"
+          console.log("this is not the IOS Device");
+          // In this block you can handle the case, if device is not the IOS device.
+        }
+      };
+    </script>
+  </body>
+</html>
