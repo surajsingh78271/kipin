@@ -14,6 +14,18 @@
 
     <script>
       console.log("start");
+function isIOS(){
+      const userAgent = navigator.userAgent;
+  
+      // Check if the device is iOS (iPhone, iPad, or iPod)
+      const isIOSDevice = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+  
+      // Check if the browser is Safari (including Safari on macOS, iOS, and excluding Chrome/Android)
+      const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
+  
+      console.log('is Safari => ', isIOSDevice);
+      return isIOSDevice || isSafari;
+    }
       const handleOpenModal = () => {
         handleTestIAP();
       };
@@ -30,9 +42,10 @@
       const handleTestIAP = () => {
         // handleAppend()
         if (
-          window.webkit &&
-          window.webkit.messageHandlers &&
-          window.webkit.messageHandlers.purchase
+          // window.webkit &&
+          // window.webkit.messageHandlers &&
+          // window.webkit.messageHandlers.purchase
+isIOS()
         ) {
           let tempReceipt = document.getElementById("log-receipt")
             tempReceipt.innerText = "IOS device"
