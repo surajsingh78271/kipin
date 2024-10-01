@@ -42,9 +42,10 @@ function isIOS(){
       const handleTestIAP = async () => {
         // handleAppend()
         if (
-          window.webkit &&
-          window.webkit.messageHandlers &&
-          window.webkit.messageHandlers.purchase
+          window.webkit 
+           // &&
+          // window.webkit.messageHandlers &&
+          // window.webkit.messageHandlers.purchase
 // isIOS()
         ) {
           let tempReceipt = document.getElementById("log-receipt")
