@@ -39,21 +39,24 @@ function isIOS(){
         };
       };
 
-      const handleTestIAP = () => {
+      const handleTestIAP = async () => {
         // handleAppend()
         if (
-          // window.webkit &&
-          // window.webkit.messageHandlers &&
-          // window.webkit.messageHandlers.purchase
-isIOS()
+          window.webkit &&
+          window.webkit.messageHandlers &&
+          window.webkit.messageHandlers.purchase
+// isIOS()
         ) {
           let tempReceipt = document.getElementById("log-receipt")
-            tempReceipt.innerText = "IOS device"
-          // If Device is IOS device this function will be invoked
-          window.webkit.messageHandlers.purchase.postMessage({
-            productName: "suraj_product",
-            productPrice: 10.0,
-          });
+            
+            try {
+tempReceipt.innerText = "IOS device"
+              // If Device is IOS device this function will be invoked
+               await window.webkit.messageHandlers.purchase.postMessage("");
+              
+            } catch (error) {
+              console.error(error)
+            }
         } else {
           let tempReceipt = document.getElementById("log-receipt")
             tempReceipt.innerText = "Not IOS Device"
