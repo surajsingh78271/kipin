@@ -13,9 +13,10 @@
     <button onclick="handleOpenModal()" id="show-iap-modal">
       Open IAP Modal For IOS
     </button>
-    <button onclick="callAndroidFunction()" id="show-iap-modal">
-      Open IAP Modal For Android
+<button onclick="handleStoreData()" id="show-iap-modal">
+      Store Data
     </button>
+    
 
 <!-- <script
         src="https://browser.sentry-cdn.com/6.2.2/bundle.min.js"
@@ -24,10 +25,14 @@
 ></script> -->
 
     <script type="text/javascript">
-    function callAndroidFunction() {
-        // Call the showToast method in the Android code
-        Android.showToast("Hello from JavaScript!");
-    }
+ function handleStoreData(){
+ console.log("store function store")
+ sessionStorage.setItem('username', 'JohnDoe');
+ console.log("get data",sessionStorage.getItem("username"));
+
+
+
+ }
 
 
 // window.onload = function() {
@@ -38,7 +43,7 @@
 //     };
     
       console.log("start");
-sessionStorage.setItem('username', 'JohnDoe');
+
 function isIOS(){
       const userAgent = navigator.userAgent;
   
