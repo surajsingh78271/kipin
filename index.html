@@ -11,15 +11,25 @@
     <h1 style="text-align: center">Kipin PWA</h1>
     <h1 id="log-receipt">Logs Receipt => </h1>
     <button onclick="handleOpenModal()" id="show-iap-modal">
-      Open IAP Modal
+      Open IAP Modal For IOS
     </button>
+    <button onclick="callAndroidFunction()" id="show-iap-modal">
+      Open IAP Modal For Android
+    </button>
+
 <!-- <script
         src="https://browser.sentry-cdn.com/6.2.2/bundle.min.js"
         integrity="sha384-SEu4bJkpht31dkOz4nRcKDxnisSU+Jc8WRSOnBSZJ2yVMlbk4sAKQSrBw6qBVzKR"
         crossorigin="anonymous"
 ></script> -->
 
-    <script>
+    <script type="text/javascript">
+    function callAndroidFunction() {
+        // Call the showToast method in the Android code
+        Android.showToast("Hello from JavaScript!");
+    }
+
+
 // window.onload = function() {
 //         Sentry.init({
 //             dsn: '__INSERT_DSN_URL__',
