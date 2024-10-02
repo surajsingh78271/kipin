@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;" />
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PWA kIPIN</title>
   </head>
   <body>
@@ -13,8 +13,17 @@
     <button onclick="handleOpenModal()" id="show-iap-modal">
       Open IAP Modal
     </button>
+<script
+        src="https://browser.sentry-cdn.com/6.2.2/bundle.min.js"
+        integrity="sha384-SEu4bJkpht31dkOz4nRcKDxnisSU+Jc8WRSOnBSZJ2yVMlbk4sAKQSrBw6qBVzKR"
+        crossorigin="anonymous"
+></script>
 
     <script>
+Sentry.init({
+    dsn: '__INSERT_DSN_URL__',
+    release: '0.0.1',
+});
     
       console.log("start");
 function isIOS(){
