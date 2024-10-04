@@ -50,7 +50,7 @@
               
             } catch (error) {
               tempReceipt.innerText = `${error}`
-              tempReceipt.innerText = `${window.webkit}`
+              tempReceipt.innerText = `${JSON.stringfy(window.webkit)}`
               console.error(error)
             }
           
