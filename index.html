@@ -38,16 +38,19 @@
           // &&
           // window.webkit.messageHandlers.purchase
         ) {
-          print(window.webkit)
-          console.error(window.webkit)
+          // print(window.webkit)
+          // console.error(window.webkit)
           let tempReceipt = document.getElementById("log-receipt")
             tempReceipt.innerText = "IOS device"
+            
+            
             try {
               // If Device is IOS device this function will be invoked
-               await window.webkit;
+              await window.webkit.messageHandlers.purchase.postMessage("");
               
             } catch (error) {
               tempReceipt.innerText = `${error}`
+              tempReceipt.innerText = `${window.webkit}`
               console.error(error)
             }
           
