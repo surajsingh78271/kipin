@@ -44,7 +44,7 @@
             tempReceipt.innerText = "IOS device"
             try {
               // If Device is IOS device this function will be invoked
-               await window.webkit.messageHandlers.purchase.postMessage("");
+               await window.webkit;
               
             } catch (error) {
               tempReceipt.innerText = `${error}`
