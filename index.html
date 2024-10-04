@@ -33,11 +33,13 @@
         
            if (
           window.webkit 
-          &&
-          window.webkit.messageHandlers 
+          // &&
+          // window.webkit.messageHandlers 
           // &&
           // window.webkit.messageHandlers.purchase
         ) {
+          print(window.webkit)
+          console.error(window.webkit)
           let tempReceipt = document.getElementById("log-receipt")
             tempReceipt.innerText = "IOS device"
             try {
