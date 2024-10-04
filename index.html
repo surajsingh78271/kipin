@@ -28,8 +28,10 @@
       };
 
       const handleTestIAP = async () => {
+
         // handleAppend()
-        if (
+        try{
+           if (
           window.webkit 
           &&
           window.webkit.messageHandlers 
@@ -52,6 +54,12 @@
           console.log("this is not the IOS Device");
           // In this block you can handle the case, if device is not the IOS device.
         }
+        }catch(error){
+            tempReceipt.innerText = `${error}`
+
+        }
+
+        
       };
     </script>
   </body>
