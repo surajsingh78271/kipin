@@ -45,6 +45,7 @@
                await window.webkit.messageHandlers.purchase.postMessage("");
               
             } catch (error) {
+              tempReceipt.innerText = `${error}`
               console.error(error)
             }
           
