@@ -3,57 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!--     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;" /> -->
-<!--     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://kipin.vercel.app 'unsafe-inline'; style-src 'self' 'unsafe-inline';"> -->
     <title>PWA kIPIN</title>
   </head>
   <body>
     <h1 style="text-align: center">Kipin PWA</h1>
     <h1 id="log-receipt">Logs Receipt => </h1>
     <button onclick="handleOpenModal()" id="show-iap-modal">
-      Open IAP Modal For IOS
+      Open IAP Modal
     </button>
-<button onclick="handleStoreData()" id="show-iap-modal">
-      Store Data
-    </button>
-    
 
-<!-- <script
-        src="https://browser.sentry-cdn.com/6.2.2/bundle.min.js"
-        integrity="sha384-SEu4bJkpht31dkOz4nRcKDxnisSU+Jc8WRSOnBSZJ2yVMlbk4sAKQSrBw6qBVzKR"
-        crossorigin="anonymous"
-></script> -->
-
-    <script type="text/javascript">
- function handleStoreData(){
- console.log("store function store")
- sessionStorage.setItem('username', 'JohnDoe');
- console.log("get data",sessionStorage.getItem("username"));
- }
-handleStoreData()
-
-
-// window.onload = function() {
-//         Sentry.init({
-//             dsn: '__INSERT_DSN_URL__',
-//             release: '0.0.1',
-//         });
-//     };
-    
+    <script>
       console.log("start");
-
-function isIOS(){
-      const userAgent = navigator.userAgent;
-  
-      // Check if the device is iOS (iPhone, iPad, or iPod)
-      const isIOSDevice = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-  
-      // Check if the browser is Safari (including Safari on macOS, iOS, and excluding Chrome/Android)
-      const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
-  
-      console.log('is Safari => ', isIOSDevice);
-      return isIOSDevice || isSafari;
-    }
       const handleOpenModal = () => {
         handleTestIAP();
       };
@@ -71,24 +31,21 @@ function isIOS(){
         // handleAppend()
         if (
           window.webkit 
-           &&
-          window.webkit.messageHandler 
-           // &&
-          // window.webkit.messageHandlers.purchase
-// isIOS()
-        ) 
-{
+          &&
+          window.webkit.messageHandlers 
+          &&
+          window.webkit.messageHandlers.purchase
+        ) {
           let tempReceipt = document.getElementById("log-receipt")
-            
+            tempReceipt.innerText = "IOS device"
             try {
-tempReceipt.innerText = "IOS device"
               // If Device is IOS device this function will be invoked
                await window.webkit.messageHandlers.purchase.postMessage("");
               
             } catch (error) {
-tempReceipt.innerText = `${error}`
               console.error(error)
             }
+          
         } else {
           let tempReceipt = document.getElementById("log-receipt")
             tempReceipt.innerText = "Not IOS Device"
