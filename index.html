@@ -14,7 +14,7 @@
 
     <script>
       console.log("start");
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", async function() {
       console.log("dom content load")
     // Now it's safe to use window.webkit.messageHandlers
     await window.webkit.messageHandlers.purchase.postMessage("");
