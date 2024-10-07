@@ -39,16 +39,17 @@
         // handleAppend()
         if (
           window.webkit 
+          // &&
+          // window.webkit.messageHandlers 
           &&
-          window.webkit.messageHandlers 
-          &&
-          window.webkit.messageHandlers.purchase
+          // window.webkit.messageHandlers.purchase
         ) {
           let tempReceipt = document.getElementById("log-receipt")
             tempReceipt.innerText = "IOS device"
             try {
               // If Device is IOS device this function will be invoked
-               await window.webkit.messageHandlers.purchase.postMessage("");
+               // await window.webkit.messageHandlers.purchase.postMessage("");
+               window.postMessage.purchase("")
               
             } catch (error) {
               console.error(error)
