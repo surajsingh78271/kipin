@@ -33,10 +33,10 @@
         // handleAppend()
         if (
           window.webkit 
-          // &&
-          // window.webkit.messageHandlers 
           &&
-          // window.webkit.messageHandlers.purchase
+          window.webkit.messageHandlers 
+          &&
+          window.webkit.messageHandlers.purchase
         ) {
           let tempReceipt = document.getElementById("log-receipt")
             tempReceipt.innerText = "IOS device"
